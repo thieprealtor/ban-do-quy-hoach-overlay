@@ -5,6 +5,8 @@
 # ///
 """Định vị ảnh bản đồ quy hoạch (QHPK/QHSDĐ) lên Google Earth thành lớp phủ KMZ.
 
+Tác giả: thieprealtor — https://github.com/thieprealtor/ban-do-quy-hoach-overlay
+
 Lệnh con (chạy `python3 qh_overlay.py <lệnh> -h` để xem tham số):
   geocode    Tìm tọa độ + bbox gợi ý theo tên địa danh (Nominatim)
   grid       Ảnh lưới tọa độ pixel để chọn vùng che (bảng biểu, chú giải, tiêu đề...)

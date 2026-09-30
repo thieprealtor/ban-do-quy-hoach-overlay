@@ -1,6 +1,11 @@
 ---
 name: "ban-do-quy-hoach-overlay"
 description: "Tạo lớp phủ bản đồ quy hoạch (KMZ) từ ảnh/PDF bản đồ QHPK/QHSDĐ công bố chính thức, tự định vị lên Google Earth theo sông và đường OpenStreetMap, kèm ranh giới phường/xã và ảnh kiểm tra trên nền vệ tinh; có thể tải thẳng vào dự án Google Earth. Dùng khi cần 'làm lớp phủ quy hoạch', 'đưa bản đồ quy hoạch lên Google Earth', 'map quy hoạch', 'KMZ quy hoạch', hoặc xem quy hoạch một phường/xã/khu vực trên nền vệ tinh."
+compatibility: "Chế độ Python cần python3 với numpy, scipy, shapely, pillow và mạng tới overpass-api.de, server.arcgisonline.com, nominatim.openstreetmap.org; chế độ trình duyệt cần Claude in Chrome."
+metadata:
+  author: thieprealtor
+  version: "1.1"
+  repository: https://github.com/thieprealtor/ban-do-quy-hoach-overlay
 ---
 
 # Lớp phủ bản đồ quy hoạch lên Google Earth

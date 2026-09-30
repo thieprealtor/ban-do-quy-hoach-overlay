@@ -1,5 +1,7 @@
 # ban-do-quy-hoach-overlay
 
+**Tác giả:** [thieprealtor](https://github.com/thieprealtor) · **Hướng dẫn sử dụng:** [HUONG-DAN-SU-DUNG.md](HUONG-DAN-SU-DUNG.md)
+
 Skill cho Claude: biến ảnh/PDF bản đồ quy hoạch (QHPK 1/2000, QH sử dụng đất…) do cơ quan nhà nước công bố thành **lớp phủ KMZ đặt đúng tọa độ trên Google Earth**, kèm ranh giới phường/xã và ảnh kiểm tra trên nền vệ tinh.
 
 - Hỏi nguồn trước; người dùng không có thì tự tìm trên cổng thông tin nhà nước và báo chí uy tín.
@@ -11,7 +13,7 @@ Skill cho Claude: biến ảnh/PDF bản đồ quy hoạch (QHPK 1/2000, QH sử
 
 Tải [`dist/ban-do-quy-hoach-overlay.skill`](dist/ban-do-quy-hoach-overlay.skill) rồi tải lên mục Skills trong phần cài đặt của Claude (hoặc bấm **Save skill** khi file được gửi trong cuộc trò chuyện).
 
-Gọi bằng các câu như: "làm map quy hoạch phường An Khánh", "đưa bản đồ quy hoạch lên Google Earth", "làm lớp phủ quy hoạch phân khu số 7".
+Gọi bằng các câu như: "làm map quy hoạch phường An Khánh", "đưa bản đồ quy hoạch lên Google Earth", "làm lớp phủ quy hoạch phân khu số 7". Cài trên Claude Code, cách mở kết quả trong Google Earth và xử lý sự cố: xem [hướng dẫn sử dụng](HUONG-DAN-SU-DUNG.md).
 
 ## Dùng script độc lập
 
@@ -54,3 +56,7 @@ dist/ban-do-quy-hoach-overlay.skill   # gói cài đặt
 - OpenStreetMap: © OpenStreetMap contributors, ODbL (dùng để định vị và vẽ ranh giới).
 - Ảnh vệ tinh Esri World Imagery chỉ dùng để tạo ảnh kiểm tra, không đưa vào KMZ.
 - Lớp phủ chỉ để tham khảo; khi tư vấn lô cụ thể phải đối chiếu thông tin quy hoạch chính thức.
+
+## Tác giả
+
+**thieprealtor** — <https://github.com/thieprealtor>. Khi chia sẻ hoặc dùng lại, vui lòng ghi nguồn tác giả. Báo lỗi, góp ý: mở [Issue](https://github.com/thieprealtor/ban-do-quy-hoach-overlay/issues).
