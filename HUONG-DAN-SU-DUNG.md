@@ -162,7 +162,7 @@ Bản đồ công bố thường có tiêu đề, bảng biểu, chú giải, kh
 
 - Tác giả: **thieprealtor** — <https://github.com/thieprealtor>
 - Báo lỗi, góp ý: mở *Issue* tại <https://github.com/thieprealtor/ban-do-quy-hoach-overlay/issues>
-- Khi chia sẻ hoặc dùng lại skill, vui lòng ghi nguồn tác giả **thieprealtor**.
+- Giấy phép [MIT](LICENSE) © 2026 thieprealtor: được dùng, sửa, chia sẻ (kể cả thương mại), với điều kiện giữ nguyên ghi chú bản quyền và giấy phép trong mọi bản sao.
 
 ### Lịch sử phiên bản
 

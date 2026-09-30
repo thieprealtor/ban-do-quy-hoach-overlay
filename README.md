@@ -45,9 +45,12 @@ Các lệnh con: `geocode`, `grid`, `masks`, `fetch-osm`, `boundary`, `intersect
 ```
 skills/ban-do-quy-hoach-overlay/
 ├── SKILL.md                    # quy trình cho Claude
+├── LICENSE.txt                 # giấy phép MIT (đi kèm gói cài đặt)
 ├── scripts/qh_overlay.py       # định vị + xuất KMZ + kiểm tra vệ tinh
 └── references/browser-mode.md  # quy trình thay thế khi sandbox bị chặn mạng
 dist/ban-do-quy-hoach-overlay.skill   # gói cài đặt
+HUONG-DAN-SU-DUNG.md                  # hướng dẫn sử dụng chi tiết
+LICENSE                               # giấy phép MIT
 ```
 
 ## Dữ liệu và bản quyền
@@ -59,4 +62,8 @@ dist/ban-do-quy-hoach-overlay.skill   # gói cài đặt
 
 ## Tác giả
 
-**thieprealtor** — <https://github.com/thieprealtor>. Khi chia sẻ hoặc dùng lại, vui lòng ghi nguồn tác giả. Báo lỗi, góp ý: mở [Issue](https://github.com/thieprealtor/ban-do-quy-hoach-overlay/issues).
+**thieprealtor** — <https://github.com/thieprealtor>. Báo lỗi, góp ý: mở [Issue](https://github.com/thieprealtor/ban-do-quy-hoach-overlay/issues).
+
+## Giấy phép
+
+[MIT](LICENSE) © 2026 thieprealtor. Được dùng, sửa, chia sẻ (kể cả mục đích thương mại), với điều kiện giữ nguyên ghi chú bản quyền và giấy phép trong mọi bản sao.
