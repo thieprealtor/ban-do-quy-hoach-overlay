@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+.qhvenv/
+.tiles/
+/work/
+/*.kmz
+/*.kml
+/*.jpg
+/*.png
+/*.json
