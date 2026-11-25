@@ -1,17 +1,17 @@
 ---
 name: "ban-do-quy-hoach-overlay"
-description: "Tạo lớp phủ bản đồ quy hoạch (KMZ) từ ảnh/PDF bản đồ QHPK/QHSDĐ công bố chính thức, tự định vị lên Google Earth theo sông và đường OpenStreetMap, kèm ranh giới phường/xã và ảnh kiểm tra trên nền vệ tinh; có thể tải thẳng vào dự án Google Earth. Dùng khi cần 'làm lớp phủ quy hoạch', 'đưa bản đồ quy hoạch lên Google Earth', 'map quy hoạch', 'KMZ quy hoạch', hoặc xem quy hoạch một phường/xã/khu vực trên nền vệ tinh."
+description: "Tạo lớp phủ bản đồ quy hoạch (KMZ) từ ảnh/PDF bản đồ QHPK/QHSDĐ công bố chính thức, tự định vị lên Google Earth theo sông và đường OpenStreetMap, kèm ranh giới phường/xã và ảnh kiểm tra trên nền vệ tinh; có thể tải thẳng vào dự án Google Earth. Dùng khi cần 'làm lớp phủ quy hoạch', 'đưa bản đồ quy hoạch lên Google Earth', 'map quy hoạch', 'KMZ quy hoạch', hoặc xem quy hoạch một phường/xã/khu vực, quy hoạch chung/tổng thể/quy hoạch tỉnh, thành phố trên nền vệ tinh."
 license: "MIT – xem LICENSE.txt"
-compatibility: "Chế độ Python cần python3 với numpy, scipy, shapely, pillow và mạng tới overpass-api.de, server.arcgisonline.com, nominatim.openstreetmap.org; chế độ trình duyệt cần Claude in Chrome."
+compatibility: "Chế độ Python cần python3 với numpy, scipy, shapely, pillow (bản đồ khổ lớn thêm pyproj) và mạng tới overpass-api.de, server.arcgisonline.com, nominatim.openstreetmap.org; chế độ trình duyệt cần Claude in Chrome."
 metadata:
   author: thieprealtor
-  version: "1.1"
+  version: "1.2"
   repository: https://github.com/thieprealtor/ban-do-quy-hoach-overlay
 ---
 
 # Lớp phủ bản đồ quy hoạch lên Google Earth
 
-Biến ảnh bản đồ quy hoạch (phân khu 1/2000, QH sử dụng đất…) thành lớp phủ KMZ đặt đúng tọa độ, rồi giao file hoặc tải vào dự án Google Earth web của người dùng. Trả lời người dùng bằng tiếng Việt, ngắn gọn.
+Biến ảnh bản đồ quy hoạch (phân khu 1/2000, QH sử dụng đất, quy hoạch chung/tổng thể cấp tỉnh/thành…) thành lớp phủ KMZ đặt đúng tọa độ, rồi giao file hoặc tải vào dự án Google Earth web của người dùng. Trả lời người dùng bằng tiếng Việt, ngắn gọn.
 
 ## 0. Nguyên tắc nguồn dữ liệu (bắt buộc)
 
@@ -57,7 +57,8 @@ Không dùng: bản vẽ lại trên trang môi giới, group/fanpage, My Maps/K
    Ảnh báo thường là bản thu nhỏ: bỏ đoạn `thumb_w/<n>/` hoặc `zoom/<w>_<h>/` trong URL để lấy ảnh gốc (Tuổi Trẻ: `https://cdn2.tuoitre.vn/<id>/<yyyy>/<m>/<d>/<tên>.jpg`).
 3. Số quyết định thường KHÔNG in trên ảnh (khung tên để trống): tìm `"phân khu số N" <địa phương> "QĐ-UBND"`. Nguồn có thể ghi lệch ngày ký/ngày công bố → ghi rõ ngày nào là ngày nào.
 4. Tìm điều chỉnh mới hơn: `điều chỉnh quy hoạch <khu vực> <năm nay>`, `điều chỉnh cục bộ phân khu số N`. Có điều chỉnh → ghi vào mô tả lớp phủ và báo cáo.
-5. Báo người dùng một dòng nguồn đã chọn (cơ quan/báo + số QĐ), rồi làm tiếp.
+5. Quy hoạch cấp thành phố/tỉnh (tổng thể, chung): ưu tiên bộ bản vẽ gốc độ phân giải cao trên trang Sở (thường là thư mục chia sẻ JPG/PDF) và tra phụ lục danh mục bản vẽ trong Quyết định (ký hiệu, tỷ lệ). Mẹo tải: xem `references/ban-do-kho-lon.md`.
+6. Báo người dùng một dòng nguồn đã chọn (cơ quan/báo + số QĐ), rồi làm tiếp.
 
 ## 2. Chọn cách chạy
 
@@ -70,6 +71,8 @@ for u in https://overpass-api.de/api/status "https://server.arcgisonline.com/Arc
 - Overpass/Esri bị chặn (sandbox cloud 403/timeout) → **chế độ trình duyệt**: làm theo `references/browser-mode.md`.
 
 ## 3. Chế độ Python (`scripts/qh_overlay.py`)
+
+**Bản đồ khổ lớn** (một tờ phủ > 50 km: quy hoạch chung/tổng thể/tỉnh) → KHÔNG làm theo các bước dưới; theo `references/ban-do-kho-lon.md` với `scripts/qh_bigmap.py` (UTM + affine, khớp bằng trường điểm khống chế, chỉ dùng tín hiệu trong ranh quy hoạch, định vị riêng khung phụ như đảo, xuất KMZ cắt ô + chú giải). Các bước dưới dành cho bản phân khu/khu vực nhỏ.
 
 Chuẩn bị (thư mục làm việc riêng cho mỗi lần chạy):
 ```bash
@@ -119,5 +122,8 @@ Ngắn gọn: file/dự án đã tạo; mỗi phân khu phủ phần nào của 
 - Phường mới (sau sắp xếp 2025) nằm trên nhiều phân khu → làm đủ các phân khu và kèm ranh giới phường để người dùng biết phần nào thuộc phường.
 - Ảnh báo đăng là bản thu nhỏ → lấy URL gốc. Ảnh công bố thường chỉ ~2560 px (2–3,5 m/px): xem tổng thể, không đọc được chi tiết từng lô.
 - Quy hoạch có thể đã điều chỉnh cục bộ sau khi công bố → luôn tìm tin điều chỉnh mới nhất.
+- Pano khổ lớn hay ghép lớp: nội dung quy hoạch bị đặt lệch so với nền vùng xung quanh (đã gặp 260–800 m) và mỗi tờ lệch khác nhau → không định vị theo khung/nền; dùng `qh_bigmap.py fit --plan-kml`, tờ thứ hai dùng `register`.
+- Khung phụ trên bản vẽ (đảo xa, sơ đồ vị trí) không ở vị trí thật → che khỏi lớp chính, định vị riêng.
+- Màu tím khu công nghiệp bị nhận nhầm là nước với quy tắc `b>r+50` → bản đồ nhiều lớp màu dùng quy tắc `g-r>35 & b-g>12 & b>150`.
 - Overpass trả 406/429 khi request thiếu User-Agent mô tả rõ → script đã đặt UA và tự đổi máy chủ; tự viết request thì phải đặt UA.
 - (Trình duyệt) Output tool bị chặn "[BLOCKED: Cookie/query string data]" khi trả về URL/chuỗi dài → chỉ trả về số đếm/tóm tắt. Đóng tab phụ sau khi xong.

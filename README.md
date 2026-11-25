@@ -40,6 +40,8 @@ Kết quả thử nghiệm với bản đồ này: khớp tự động khoảng 
 
 Các lệnh con: `geocode`, `grid`, `masks`, `fetch-osm`, `boundary`, `intersect`, `align` (tự động hoặc `--gcp` theo điểm khống chế), `export`, `verify`. Xem `python3 $S <lệnh> -h`.
 
+**Bản đồ khổ lớn** (quy hoạch chung/tổng thể cấp tỉnh, thành): `scripts/qh_bigmap.py` với các lệnh `fetch`, `fit`, `register`, `export` — xem [references/ban-do-kho-lon.md](skills/ban-do-quy-hoach-overlay/references/ban-do-kho-lon.md). Đã thử trên Quy hoạch tổng thể TP.HCM 2025–2050, tầm nhìn 100 năm: lệch trung vị ~9 m, 90% điểm dưới 20 m.
+
 ## Cấu trúc
 
 ```
@@ -47,6 +49,8 @@ skills/ban-do-quy-hoach-overlay/
 ├── SKILL.md                    # quy trình cho Claude
 ├── LICENSE.txt                 # giấy phép MIT (đi kèm gói cài đặt)
 ├── scripts/qh_overlay.py       # định vị + xuất KMZ + kiểm tra vệ tinh
+├── scripts/qh_bigmap.py        # bản đồ khổ lớn: UTM + affine, cắt ô
+├── references/ban-do-kho-lon.md # quy trình bản đồ khổ lớn
 └── references/browser-mode.md  # quy trình thay thế khi sandbox bị chặn mạng
 dist/ban-do-quy-hoach-overlay.skill   # gói cài đặt
 HUONG-DAN-SU-DUNG.md                  # hướng dẫn sử dụng chi tiết

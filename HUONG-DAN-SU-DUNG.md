@@ -1,6 +1,6 @@
 # Hướng dẫn sử dụng skill "Bản đồ quy hoạch overlay"
 
-**Tác giả:** [thieprealtor](https://github.com/thieprealtor) · **Phiên bản:** 1.1 · **Cập nhật:** 30/09/2026
+**Tác giả:** [thieprealtor](https://github.com/thieprealtor) · **Phiên bản:** 1.2 · **Cập nhật:** 25/11/2026
 
 Skill giúp Claude biến bản đồ quy hoạch do cơ quan nhà nước công bố (quy hoạch phân khu 1/2000, quy hoạch sử dụng đất…) thành **lớp phủ đặt đúng vị trí trên Google Earth**, để xem quy hoạch chồng lên ảnh vệ tinh của một phường, xã hay khu vực.
 
@@ -133,6 +133,10 @@ Bản đồ công bố thường có tiêu đề, bảng biểu, chú giải, kh
 2. Tìm pixel của đúng giao lộ đó trên ảnh bằng `grid --crop`.
 3. `align <ảnh> --gcp "u,v,lat,lon;u,v,lat,lon;u,v,lat,lon"` với 3–5 điểm trải đều; thêm `--refine` nếu khu vực có kênh/hồ.
 
+### Bản đồ khổ lớn (quy hoạch chung, tổng thể, quy hoạch tỉnh/thành)
+
+Dùng `scripts/qh_bigmap.py` (cần thêm thư viện `pyproj`). Các bước `fetch` → `fit` → (`register` cho tờ thứ hai) → `export`; chi tiết và ví dụ ở `skills/ban-do-quy-hoach-overlay/references/ban-do-kho-lon.md`. Câu hỏi mẫu cho Claude: "Làm KMZ quy hoạch tổng thể TP.HCM tầm nhìn 100 năm".
+
 ## 6. Độ chính xác và giới hạn
 
 - Sai số định vị thường **20–50 m**; chỉ để tham khảo.
@@ -166,5 +170,6 @@ Bản đồ công bố thường có tiêu đề, bảng biểu, chú giải, kh
 
 ### Lịch sử phiên bản
 
+- **1.2** (25/11/2026): bản đồ khổ lớn cấp tỉnh/thành (`qh_bigmap.py`): UTM + affine, trường điểm khống chế, phát hiện lớp quy hoạch đặt lệch trên pano, ghép tờ thứ hai, định vị khung phụ (đảo), xuất KMZ cắt ô kèm chú giải, giữ khu lấn biển; thử trên Quy hoạch tổng thể TP.HCM tầm nhìn 100 năm.
 - **1.1** (30/09/2026): hỏi nguồn trước khi tìm; script Python tự khớp theo mặt nước và điểm khống chế; ranh giới phường; ảnh kiểm tra vệ tinh; KMZ gọn hơn; tra số quyết định và điều chỉnh mới.
 - **1.0** (30/09/2026): bản đầu, chạy hoàn toàn trong trình duyệt (Claude in Chrome).
